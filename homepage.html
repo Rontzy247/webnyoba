@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RONZZ | Portfolio Developer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#474747",
+                        "inverse-primary": "#9900ce",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "on-background": "#e2e2e2",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#1b1b1b",
+                        "surface-container-low": "#1a1c1c",
+                        "outline-variant": "#514254",
+                        "primary-container": "#bf00ff",
+                        "primary": "#ecb1ff",
+                        "surface-dim": "#121414",
+                        "surface-tint": "#ecb1ff",
+                        "error-container": "#93000a",
+                        "on-surface": "#e2e2e2",
+                        "surface-container-high": "#282a2b",
+                        "on-primary": "#520070",
+                        "on-secondary-container": "#b5b5b5",
+                        "error": "#ffb4ab",
+                        "on-surface-variant": "#d5c0d7",
+                        "tertiary-container": "#777676",
+                        "surface-variant": "#333535",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#e5e2e1",
+                        "surface-bright": "#37393a",
+                        "inverse-surface": "#e2e2e2",
+                        "secondary-container": "#474747",
+                        "surface-container": "#1e2020",
+                        "surface-container-highest": "#333535",
+                        "on-tertiary": "#313030",
+                        "surface-container-lowest": "#0c0f0f",
+                        "inverse-on-surface": "#2f3131",
+                        "background": "#121414",
+                        "on-primary-fixed": "#320046",
+                        "secondary": "#c6c6c6",
+                        "on-secondary": "#303030",
+                        "secondary-fixed-dim": "#c6c6c6",
+                        "primary-fixed": "#f9d8ff",
+                        "on-tertiary-container": "#ffffff",
+                        "secondary-fixed": "#e2e2e2",
+                        "tertiary": "#c8c6c5",
+                        "primary-fixed-dim": "#ecb1ff",
+                        "on-primary-fixed-variant": "#75009e",
+                        "surface": "#121414",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "outline": "#9d8ba0",
+                        "on-primary-container": "#ffffff",
+                        "on-tertiary-fixed-variant": "#474746"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1.5rem",
+                        "container-max": "1200px",
+                        "margin": "1.5rem",
+                        "gutter": "2rem",
+                        "stack-lg": "3rem",
+                        "section-padding": "8rem"
+                    },
+                    "fontFamily": {
+                        "h1": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Space Grotesk"],
+                        "h2": ["Space Grotesk"],
+                        "h3": ["Space Grotesk"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h1": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-caps": ["14px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "h2": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "h3": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #000000; color: #e2e2e2; cursor: none; }
+        .glow-sm { text-shadow: 0 0 10px rgba(191,0,255,0.5); }
+        .neon-border { border: 1px solid rgba(191,0,255,0.3); box-shadow: 0 0 15px rgba(191,0,255,0.1); }
+        .neon-accent { color: #bf00ff; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(191,0,255,0.3); border-color: rgba(191,0,255,0.4); }
+            50% { box-shadow: 0 0 50px rgba(191,0,255,0.6); border-color: rgba(191,0,255,0.8); }
+        }
+        .animate-pulse-glow { animation: pulse-glow 3s infinite ease-in-out; }
+
+        @keyframes text-glow {
+            0%, 100% { text-shadow: 0 0 10px rgba(191,0,255,0.2); }
+            50% { text-shadow: 0 0 25px rgba(191,0,255,0.7); }
+        }
+        .animate-text-glow { animation: text-glow 2.5s infinite ease-in-out; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        #custom-cursor {
+            width: 20px;
+            height: 20px;
+            background: rgba(191,0,255,0.4);
+            border: 1px solid rgba(191,0,255,0.8);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease, background 0.3s ease;
+            box-shadow: 0 0 15px rgba(191,0,255,0.5);
+        }
+
+        .typing-container::after {
+            content: "|";
+            animation: blink 0.7s infinite;
+            color: #bf00ff;
+            margin-left: 4px;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .parallax-bg {
+            transition: transform 0.2s cubic-bezier(0.1, 0, 0.3, 1);
+        }
+    </style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="font-body-md selection:bg-primary-container selection:text-white">
+<div id="custom-cursor"></div>
+<header class="bg-black/90 backdrop-blur-xl border-b border-fuchsia-500/20 shadow-[0_0_20px_rgba(191,0,255,0.15)] fixed top-0 w-full z-50">
+<div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-fuchsia-500 animate-text-glow" data-icon="terminal">terminal</span>
+<span class="text-2xl font-black tracking-widest text-fuchsia-500 uppercase font-h1 animate-text-glow">RONZZ</span>
+</div>
+<nav class="hidden md:flex items-center gap-8 font-label-caps">
+<a class="text-fuchsia-500 border-b-2 border-fuchsia-500 pb-1 hover:scale-110 hover:text-fuchsia-300 transition-all duration-300" href="#home">Home</a>
+</nav>
+<button class="bg-primary-container text-white px-6 py-2 rounded-full font-label-caps hover:scale-110 hover:shadow-[0_0_25px_rgba(191,0,255,0.6)] transition-all duration-300 active:scale-95">Pekerjakan Saya</button>
+</div>
+</header>
+<main class="pt-32">
+<section class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center min-h-[819px] relative overflow-hidden" id="home">
+<div class="absolute inset-0 -z-10 parallax-bg opacity-30 pointer-events-none" id="hero-bg">
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-container/20 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-fuchsia-800/10 blur-[120px] rounded-full"></div>
+</div>
+<div class="relative group order-2 md:order-1">
+<div class="absolute -inset-4 bg-primary-container/20 rounded-full blur-3xl group-hover:bg-primary-container/40 transition-all duration-700"></div>
+<div class="relative aspect-square max-w-md mx-auto rounded-full border-4 border-fuchsia-500/50 p-2 overflow-hidden animate-pulse-glow hover:scale-[1.02] transition-transform duration-700">
+<img alt="Ronzz" class="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-700" src="https://i.pinimg.com/1200x/2e/66/18/2e6618d1c76a8fd7601894c2a18b34f3.jpg"/>
+</div>
+</div>
+<div class="space-y-6 order-1 md:order-2 text-center md:text-left">
+<p class="font-label-caps text-fuchsia-500 tracking-[0.3em] reveal">SELAMAT DATANG DI WEBSITE SAYA</p>
+<h1 class="font-h1 text-h1 text-white leading-tight reveal">Halo,Perkenalkan Saya <span class="text-fuchsia-500 animate-text-glow">Ronzz</span></h1>
+<p class="font-h3 text-h3 text-white/80 reveal">Saya adalah <span class="border-b-4 border-fuchsia-500 typing-container" id="typing-text"></span></p>
+<p class="font-body-lg text-body-lg text-gray-400 max-w-lg reveal">
+                    Membangun pengalaman digital berperforma tinggi melalui kode elegan dan strategi teknis yang tegas. Setiap baris adalah karya presisi.
+                </p>
+</div>
+</section>
+<section class="py-section-padding bg-[#0a0a0a] reveal" id="services">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-16">
+<h2 class="font-h2 text-h2 text-white mb-4">Tujuan <span class="text-fuchsia-500 underline decoration-2 underline-offset-8 animate-text-glow">Utama</span></h2>
+<p class="font-body-lg text-gray-500">Solusi khusus untuk tantangan teknis modern.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-black p-10 rounded-lg border border-fuchsia-500/10 hover:border-fuchsia-500/60 hover:shadow-[0_0_30px_rgba(191,0,255,0.2)] hover:-translate-y-2 transition-all duration-500 group">
+<span class="material-symbols-outlined text-4xl text-fuchsia-500 mb-6 group-hover:scale-110 transition-transform duration-300" data-icon="code">code</span>
+<h3 class="font-h3 text-h3 text-white mb-4 group-hover:text-fuchsia-400 transition-colors">Menjadi Progammer Handal</h3>
+<p class="text-gray-400 font-body-md">Bisa mebuat website dan bisa menyelesaikan suatu masalah.</p>
+</div>
+<div class="bg-black p-10 rounded-lg border border-fuchsia-500/10 hover:border-fuchsia-500/60 hover:shadow-[0_0_30px_rgba(191,0,255,0.2)] hover:-translate-y-2 transition-all duration-500 group">
+<span class="material-symbols-outlined text-4xl text-fuchsia-500 mb-6 group-hover:scale-110 transition-transform duration-300" data-icon="developer_mode">developer_mode</span>
+<h3 class="font-h3 text-h3 text-white mb-4 group-hover:text-fuchsia-400 transition-colors">Berguna Bagi Masyarakat</h3>
+<p class="text-gray-400 font-body-md">Merancang website/aplikasi yang punya manfaat bagi seluruh warga indonesia.</p>
+</div>
+<div class="bg-black p-10 rounded-lg border border-fuchsia-500/10 hover:border-fuchsia-500/60 hover:shadow-[0_0_30px_rgba(191,0,255,0.2)] hover:-translate-y-2 transition-all duration-500 group">
+<span class="material-symbols-outlined text-4xl text-fuchsia-500 mb-6 group-hover:scale-110 transition-transform duration-300" data-icon="bolt">bolt</span>
+<h3 class="font-h3 text-h3 text-white mb-4 group-hover:text-fuchsia-400 transition-colors">Membanggakan Orang Tua dan Keluarga</h3>
+<p class="text-gray-400 font-body-md">Bisa membuat orang disekitar kita bangga.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-section-padding reveal" id="skills">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="font-h2 text-h2 text-white mb-8">Keahlian <span class="text-fuchsia-500 animate-text-glow">Saya</span></h2>
+<div class="space-y-8">
+<div class="reveal">
+<div class="flex justify-between mb-2">
+<span class="font-label-caps text-white">HTML</span>
+<span class="text-fuchsia-500 font-bold">95%</span>
+</div>
+<div class="h-1 bg-white/10 w-full overflow-hidden">
+<div class="h-full bg-fuchsia-500 w-0 transition-all duration-[2000ms] ease-out" style="width: 95%;"></div>
+</div>
+</div>
+<div class="reveal">
+<div class="flex justify-between mb-2">
+<span class="font-label-caps text-white">CSS</span>
+<span class="text-fuchsia-500 font-bold">80%</span>
+</div>
+<div class="h-1 bg-white/10 w-full overflow-hidden">
+<div class="h-full bg-fuchsia-500 w-0 transition-all duration-[2000ms] ease-out" style="width: 80%;"></div>
+</div>
+</div>
+<div class="reveal">
+<div class="flex justify-between mb-2">
+<span class="font-label-caps text-white">Penggunaan ai dalam coding</span>
+<span class="text-fuchsia-500 font-bold">99%</span>
+</div>
+<div class="h-1 bg-white/10 w-full overflow-hidden">
+<div class="h-full bg-fuchsia-500 w-0 transition-all duration-[2000ms] ease-out" style="width: 99%;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-high p-8 flex flex-col items-center justify-center text-center gap-4 hover:bg-fuchsia-500/10 transition-all duration-500 cursor-default border border-transparent hover:border-fuchsia-500/30 hover:scale-105 hover:shadow-lg">
+<span class="material-symbols-outlined text-4xl text-fuchsia-500" data-icon="terminal">html</span>
+<span class="font-label-caps">HTML</span>
+</div>
+<div class="bg-surface-container-high p-8 flex flex-col items-center justify-center text-center gap-4 hover:bg-fuchsia-500/10 transition-all duration-500 cursor-default border border-transparent hover:border-fuchsia-500/30 hover:scale-105 hover:shadow-lg">
+<span class="material-symbols-outlined text-4xl text-fuchsia-500" data-icon="database">css</span>
+<span class="font-label-caps">CSS</span>
+</div>
+<div class="bg-surface-container-high p-8 flex flex-col items-center justify-center text-center gap-4 hover:bg-fuchsia-500/10 transition-all duration-500 cursor-default border border-transparent hover:border-fuchsia-500/30 hover:scale-105 hover:shadow-lg">
+<span class="material-symbols-outlined text-4xl text-fuchsia-500" data-icon="cloud">py</span>
+<span class="font-label-caps">python</span>
+</div>
+<div class="bg-surface-container-high p-8 flex flex-col items-center justify-center text-center gap-4 hover:bg-fuchsia-500/10 transition-all duration-500 cursor-default border border-transparent hover:border-fuchsia-500/30 hover:scale-105 hover:shadow-lg">
+<span class="material-symbols-outlined text-4xl text-fuchsia-500" data-icon="html">robot</span>
+<span class="font-label-caps">Penggunaan AI</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-section-padding bg-black relative overflow-hidden reveal" id="contact">
+<div class="absolute top-0 right-0 w-1/3 h-full bg-fuchsia-500/5 blur-3xl -z-10"></div>
+<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+<div>
+<h2 class="font-h2 text-h2 text-white mb-6">Mari <span class="text-fuchsia-500 animate-text-glow">Terhubung</span></h2>
+<p class="font-body-lg text-gray-400 mb-10">Punya proyek dalam pikiran? Mari diskusikan bagaimana kita bisa membangun sesuatu yang luar biasa bersama.</p>
+<div class="space-y-8">
+<div class="flex items-center gap-6 group cursor-pointer">
+<div class="w-12 h-12 bg-fuchsia-500/10 rounded-full flex items-center justify-center text-fuchsia-500 group-hover:bg-fuchsia-500 group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</div>
+<div>
+<p class="font-label-caps text-xs text-gray-500">EMAIL</p>
+<p class="text-white font-body-lg group-hover:text-fuchsia-400 transition-colors">ronzz@developer.io</p>
+</div>
+</div>
+<div class="flex items-center gap-6 group cursor-pointer">
+<div class="w-12 h-12 bg-fuchsia-500/10 rounded-full flex items-center justify-center text-fuchsia-500 group-hover:bg-fuchsia-500 group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+</div>
+<div>
+<p class="font-label-caps text-xs text-gray-500">LOKASI</p>
+<p class="text-white font-body-lg group-hover:text-fuchsia-400 transition-colors">Malang, Jawa-Timur</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 border border-white/5 shadow-2xl hover:border-fuchsia-500/20 transition-all duration-500">
+<form class="space-y-6">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="font-label-caps text-xs text-gray-400">NAMA ANDA</label>
+<input class="w-full bg-black/50 border-white/10 focus:border-fuchsia-500 focus:ring-0 text-white rounded p-3 transition-all" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-xs text-gray-400">ALAMAT EMAIL</label>
+<input class="w-full bg-black/50 border-white/10 focus:border-fuchsia-500 focus:ring-0 text-white rounded p-3 transition-all" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-xs text-gray-400">PESAN</label>
+<textarea class="w-full bg-black/50 border-white/10 focus:border-fuchsia-500 focus:ring-0 text-white rounded p-3 transition-all" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary-container text-white py-4 font-label-caps text-sm tracking-widest hover:bg-fuchsia-600 transition-all duration-300 shadow-[0_0_20px_rgba(191,0,255,0.2)] hover:shadow-[0_0_40px_rgba(191,0,255,0.5)]" id="magnetic-btn">KIRIM PESAN</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-black border-t border-fuchsia-500/20 w-full py-12 mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 gap-8 max-w-7xl mx-auto">
+<p class="font-space-grotes text-xs tracking-widest text-gray-500 uppercase">© 2026 RonzzDev. TAHAP PENGEMBANGAN.</p>
+<div class="flex gap-8">
+<a class="text-gray-500 font-space-grotes text-xs tracking-widest hover:text-fuchsia-400 hover:scale-110 transition-all" href="#"><i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp</a>
+<a class="text-gray-500 font-space-grotes text-xs tracking-widest hover:text-fuchsia-400 hover:scale-110 transition-all" href="#"><i class="fa-brands fa-tiktok mr-2"></i>TikTok</a>
+<a class="text-gray-500 font-space-grotes text-xs tracking-widest hover:text-fuchsia-400 hover:scale-110 transition-all" href="#"><i class="fa-brands fa-instagram mr-2"></i>Instagram</a>
+<a class="text-gray-500 font-space-grotes text-xs tracking-widest hover:text-fuchsia-400 hover:scale-110 transition-all" href="#"><i class="fa-brands fa-x-twitter mr-2"></i>X</a>
+</div>
+</div>
+</footer>
+<aside class="fixed left-0 top-0 h-full z-[60] flex flex-col bg-[#0a0a0a] w-64 rounded-r-3xl border-r border-fuchsia-500/30 shadow-[10px_0_30px_rgba(0,0,0,0.5)] transform -translate-x-full transition-transform duration-300 md:hidden">
+<div class="p-8 space-y-4 border-b border-fuchsia-500/10">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full border border-fuchsia-500 p-0.5">
+<img alt="Profil Ronzz" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbf6ogvgE0B7r1kw-I4frk1maTZfIgB4OwQpbOLISi6xfjKf1tKTSRR5bkf5NlqwyhHeHKy5zTkX4c6s9m0tyD_4FuBSH4PXv7tJ1s4yLH_EYRTHrsDSoXtdcN4hcKL50_SgJv3a6-sClnQQcZX7eM78J4XaPedumxDJfDow9y6jItHWMlnJZDd9qjPH9CKWYDY87MMwXGL4AjXGouUNkijLrAgW3b70FrF03LXHuh4HkPq2CRbw5WvI2-HEcjiGPwy1JwmCUR_qf_"/>
+</div>
+<div>
+<p class="text-fuchsia-500 font-bold font-h3 text-base">Ronzz</p>
+<p class="text-[10px] text-gray-400 tracking-wider">Seorang Developer Pemula</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 py-8 flex flex-col gap-2">
+<a class="flex items-center gap-4 px-8 py-3 bg-fuchsia-500/10 text-fuchsia-500 font-bold border-l-4 border-fuchsia-500 transition-all font-label-caps text-xs tracking-wider uppercase" href="#home">
+<span class="material-symbols-outlined" data-icon="home">home</span> Home
+            </a>
+<a class="flex items-center gap-4 px-8 py-3 text-gray-400 hover:bg-white/5 hover:translate-x-2 transition-all font-label-caps text-xs tracking-wider uppercase" href="#services">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span> Layanan
+            </a>
+<a class="flex items-center gap-4 px-8 py-3 text-gray-400 hover:bg-white/5 hover:translate-x-2 transition-all font-label-caps text-xs tracking-wider uppercase" href="#skills">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span> Keahlian
+            </a>
+<a class="flex items-center gap-4 px-8 py-3 text-gray-400 hover:bg-white/5 hover:translate-x-2 transition-all font-label-caps text-xs tracking-wider uppercase" href="#contact">
+<span class="material-symbols-outlined" data-icon="mail">mail</span> Kontak
+            </a>
+</nav>
+</aside>
+<script>
+        // Custom Cursor
+        const cursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a, button, input, textarea').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(2)';
+                cursor.style.background = 'rgba(191,0,255,0.2)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursor.style.background = 'rgba(191,0,255,0.4)';
+            });
+        });
+
+        // Typing Animation
+        const typingText = document.getElementById('typing-text');
+        const textToType = "Script Oleh RonzzDev";
+        let index = 0;
+        function type() {
+            if (index < textToType.length) {
+                typingText.textContent += textToType.charAt(index);
+                index++;
+                setTimeout(type, 100);
+            }
+        }
+        setTimeout(type, 1000);
+
+        // Scroll Reveal
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Initial check
+
+        // Hero Parallax
+        const heroBg = document.getElementById('hero-bg');
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth - e.pageX * 2) / 100;
+            const y = (window.innerHeight - e.pageY * 2) / 100;
+            heroBg.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        });
+
+        // Magnetic Button Effect
+        const btn = document.getElementById('magnetic-btn');
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = `translate(0, 0)`;
+        });
+    </script>
+</body></html>
